@@ -3,7 +3,7 @@ import { routing } from "@/i18n/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://brick-finder.vercel.app";
-  const paths = ["", "/search", "/my-bricks"];
+  const paths = ["", "/search", "/search/image", "/my-bricks", "/privacy"];
   const now = new Date();
   return routing.locales.flatMap((locale) =>
     paths.map((path) => ({

@@ -2,12 +2,14 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useAnimationControls } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Heart, Search } from "lucide-react";
+import { Camera, Heart, Search } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { ThemeToggle } from "./theme-toggle";
 import { LanguageToggle } from "./language-toggle";
+import { SoundToggle } from "./sound-toggle";
+import { useSoundFx } from "./sound-provider";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -17,6 +19,25 @@ export function Header() {
   const blurAmount = useTransform(scrollY, [0, 80], [8, 18]);
   const bg = useTransform(scrollY, [0, 80], ["rgb(var(--card) / 0.5)", "rgb(var(--card) / 0.85)"]);
   const border = useTransform(scrollY, [0, 80], ["rgb(var(--border) / 0)", "rgb(var(--border) / 0.7)"]);
+
+  const logoControls = useAnimationControls();
+  const clickStampsRef = React.useRef<number[]>([]);
+  const { play: playClick } = useSoundFx();
+
+  const onLogoClick = () => {
+    const now = Date.now();
+    const stamps = clickStampsRef.current.filter((s) => now - s < 2000);
+    stamps.push(now);
+    clickStampsRef.current = stamps;
+    if (stamps.length >= 5) {
+      clickStampsRef.current = [];
+      void logoControls.start({
+        rotate: [0, 360],
+        transition: { duration: 0.7, ease: [0.22, 1.05, 0.36, 1] },
+      });
+      playClick();
+    }
+  };
 
   return (
     <motion.header
@@ -36,10 +57,12 @@ export function Header() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link
           href="/"
+          onClick={onLogoClick}
           className="group flex items-center gap-2 text-foreground hover:text-primary transition-colors"
           aria-label={tBrand("name")}
         >
           <motion.span
+            animate={logoControls}
             whileHover={{ rotate: -8, scale: 1.05 }}
             whileTap={{ rotate: 8, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 320, damping: 18 }}
@@ -60,6 +83,9 @@ export function Header() {
         </Link>
 
         <nav className="flex items-center gap-2 sm:gap-3" aria-label={t("home")}>
+          <NavLink href="/search/image" icon={<Camera className="h-4 w-4" />}>
+            {t("searchImage")}
+          </NavLink>
           <NavLink href="/search" icon={<Search className="h-4 w-4" />}>
             {t("search")}
           </NavLink>
@@ -68,6 +94,7 @@ export function Header() {
           </NavLink>
           <span className="mx-1 hidden h-6 w-px bg-border sm:inline-block" aria-hidden />
           <LanguageToggle />
+          <SoundToggle />
           <ThemeToggle />
         </nav>
       </div>
@@ -80,7 +107,7 @@ function NavLink({
   children,
   icon,
 }: {
-  href: "/search" | "/my-bricks";
+  href: "/search" | "/my-bricks" | "/search/image";
   children: React.ReactNode;
   icon: React.ReactNode;
 }) {

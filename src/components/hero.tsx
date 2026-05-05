@@ -3,9 +3,11 @@
 import * as React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { Camera, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { SearchBar } from "./search-bar";
+import { HeroBrick } from "./hero-brick";
 
 export function Hero() {
   const t = useTranslations("brand");
@@ -27,19 +29,20 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.92, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative"
+          className="relative flex flex-col items-center gap-4"
         >
+          <HeroBrick />
           <Image
             src="/logo.png"
             alt=""
-            width={160}
-            height={160}
+            width={96}
+            height={96}
             priority
-            className="h-32 w-32 rounded-full object-cover shadow-xl shadow-primary/30 sm:h-40 sm:w-40"
+            className="h-20 w-20 rounded-full object-cover shadow-lg shadow-primary/30 sm:h-24 sm:w-24"
           />
           <div
             aria-hidden
-            className="absolute inset-0 -z-10 blur-2xl bg-primary/20 rounded-full"
+            className="absolute inset-x-0 top-1/3 -z-10 mx-auto h-48 w-48 blur-3xl bg-primary/20 rounded-full"
           />
         </motion.div>
 
@@ -62,7 +65,10 @@ export function Hero() {
           {t("name")} · {t("footer")}
         </p>
 
-        <SearchBar size="hero" autoFocus={false} />
+        <div className="flex w-full max-w-2xl flex-col gap-3">
+          <SearchBar size="hero" autoFocus={false} />
+          <ImageSearchCta />
+        </div>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -75,6 +81,19 @@ export function Hero() {
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function ImageSearchCta() {
+  const t = useTranslations("imageSearch");
+  return (
+    <Link
+      href="/search/image"
+      className="group inline-flex items-center justify-center gap-2 self-center rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
+    >
+      <Camera className="h-4 w-4 text-primary transition-transform group-hover:scale-110" />
+      <span>{t("title")}</span>
+    </Link>
   );
 }
 

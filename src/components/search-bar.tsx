@@ -6,6 +6,7 @@ import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { Input } from "@/components/ui/input";
+import { Magnetic } from "./magnetic";
 import { cn } from "@/lib/utils";
 
 interface SearchBarProps {
@@ -121,17 +122,33 @@ export function SearchBar({
             heroSizing && "h-14 text-lg",
           )}
         />
-        <button
-          type="submit"
-          aria-label={t("submit")}
-          className={cn(
-            "inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:shadow-lg active:scale-95",
-            heroSizing ? "h-12 px-6 text-base" : "h-10 px-3",
-          )}
-        >
-          <span className="hidden sm:inline">{t("submit")}</span>
-          <Search className="h-4 w-4 sm:hidden" />
-        </button>
+        {heroSizing ? (
+          <Magnetic radius={70} strength={0.22}>
+            <button
+              type="submit"
+              aria-label={t("submit")}
+              className={cn(
+                "inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary px-6 text-base font-semibold text-primary-foreground shadow-md transition-[background-color,box-shadow] hover:bg-primary/90 hover:shadow-lg active:scale-95",
+                "h-12",
+              )}
+            >
+              <span className="hidden sm:inline">{t("submit")}</span>
+              <Search className="h-4 w-4 sm:hidden" />
+            </button>
+          </Magnetic>
+        ) : (
+          <button
+            type="submit"
+            aria-label={t("submit")}
+            className={cn(
+              "inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:shadow-lg active:scale-95",
+              "h-10 px-3",
+            )}
+          >
+            <span className="hidden sm:inline">{t("submit")}</span>
+            <Search className="h-4 w-4 sm:hidden" />
+          </button>
+        )}
       </motion.div>
     </form>
   );

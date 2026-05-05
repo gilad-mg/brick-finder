@@ -1,6 +1,7 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { setRequestLocale, getMessages } from "next-intl/server";
+import { setRequestLocale, getMessages, getTranslations } from "next-intl/server";
 import { Inter, Heebo } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/header";
@@ -21,6 +22,28 @@ const heebo = Heebo({
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) return {};
+  const t = await getTranslations({ locale, namespace: "brand" });
+  const siteName = t("name");
+  return {
+    title: {
+      default: siteName,
+      template: `%s · ${siteName}`,
+    },
+    description: t("tagline"),
+    openGraph: {
+      siteName,
+      locale: locale === "he" ? "he_IL" : "en_US",
+    },
+  };
 }
 
 interface LocaleLayoutProps {

@@ -2,13 +2,26 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { ImageIcon, LayoutGrid, Search } from "lucide-react";
+import { Camera, LayoutGrid, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
+
+interface MethodItem {
+  key: string;
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+  cta?: string;
+  badge?: string;
+  live: boolean;
+  href?: "/search" | "/search/image";
+  onClick?: () => void;
+}
 
 export function MethodCards({ onActivateText }: { onActivateText?: () => void }) {
   const t = useTranslations("methods");
-  const items = [
+  const items: MethodItem[] = [
     {
       key: "text",
       icon: <Search className="h-6 w-6" />,
@@ -16,15 +29,17 @@ export function MethodCards({ onActivateText }: { onActivateText?: () => void })
       desc: t("text.desc"),
       cta: t("text.cta"),
       live: true,
+      href: "/search",
       onClick: onActivateText,
     },
     {
       key: "image",
-      icon: <ImageIcon className="h-6 w-6" />,
+      icon: <Camera className="h-6 w-6" />,
       title: t("image.title"),
       desc: t("image.desc"),
-      badge: t("image.badge"),
-      live: false,
+      cta: t("image.cta"),
+      live: true,
+      href: "/search/image",
     },
     {
       key: "theme",
@@ -79,14 +94,13 @@ export function MethodCards({ onActivateText }: { onActivateText?: () => void })
             </div>
             <h3 className="mt-5 text-xl font-semibold text-foreground">{m.title}</h3>
             <p className="mt-2 text-sm text-muted-foreground">{m.desc}</p>
-            {m.live && (
-              <button
-                type="button"
-                onClick={m.onClick}
+            {m.live && m.href && (
+              <Link
+                href={m.href}
                 className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
               >
                 {m.cta} →
-              </button>
+              </Link>
             )}
           </motion.div>
         ))}

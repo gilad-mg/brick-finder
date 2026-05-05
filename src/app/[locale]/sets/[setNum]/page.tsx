@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { ExternalLink, FileText } from "lucide-react";
 import { getSet, getSetAlternates, getTheme } from "@/lib/rebrickable";
+import { getBricksetSummary, isBricksetEnabled } from "@/lib/brickset";
 import { SetGallery } from "@/components/set-gallery";
 import { SaveButton } from "@/components/save-button";
 import { AnimatedNumber } from "@/components/animated-number";
+import { RetailerPanel } from "@/components/retailer-panel";
 import { Button } from "@/components/ui/button";
 
 interface SetPageProps {
@@ -43,12 +45,14 @@ export default async function SetPage({ params }: SetPageProps) {
   const set = await getSet(setNum);
   if (!set) notFound();
 
-  const [alternates, theme] = await Promise.all([
+  const [alternates, theme, brickset] = await Promise.all([
     getSetAlternates(setNum),
     getTheme(set.theme_id),
+    isBricksetEnabled() ? getBricksetSummary(setNum) : Promise.resolve(null),
   ]);
 
   const t = await getTranslations({ locale, namespace: "set" });
+  const tMsrp = await getTranslations({ locale, namespace: "msrp" });
 
   const images = [
     ...(set.set_img_url ? [{ url: set.set_img_url, alt: set.name }] : []),
@@ -107,10 +111,22 @@ export default async function SetPage({ params }: SetPageProps) {
             </Button>
           </div>
 
-          <div className="mt-4 rounded-3xl border border-dashed border-border bg-muted/40 p-5">
-            <p className="text-sm font-semibold text-foreground">{t("priceComparison")}</p>
-            <p className="mt-1 text-sm text-muted-foreground">{t("priceComparisonSoon")}</p>
-          </div>
+          {brickset && brickset.prices.length > 0 && (
+            <div className="rounded-3xl border border-border bg-card p-5">
+              <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                {tMsrp("heading")}
+              </p>
+              <div className="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-base font-semibold text-foreground">
+                {brickset.prices.map((p) => (
+                  <span key={p.region}>
+                    {p.region}: {p.formatted}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <RetailerPanel setNum={set.set_num} />
 
           <Link
             href={`/${locale}/search`}

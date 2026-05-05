@@ -8,7 +8,9 @@
   "nav": {
     "home": "Home",
     "search": "Search",
+    "searchImage": "Photo",
     "myBricks": "My Bricks",
+    "privacy": "Privacy",
     "skipToContent": "Skip to content",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
@@ -37,7 +39,8 @@
     "image": {
       "title": "Search by photo",
       "desc": "Snap a brick, find the set.",
-      "badge": "Coming soon"
+      "cta": "Try the camera",
+      "badge": "Live"
     },
     "theme": {
       "title": "Browse by theme",
@@ -84,6 +87,57 @@
   },
   "language": {
     "toggle": "Switch language"
+  },
+  "easterEgg": {
+    "konami": "You found the secret!",
+    "masterBuilder": "Master Builder unlocked!"
+  },
+  "sound": {
+    "toggle": "Toggle sound",
+    "on": "Sound on",
+    "off": "Sound off"
+  },
+  "imageSearch": {
+    "title": "Search by photo",
+    "subtitle": "Snap or drop a photo of a LEGO box and we'll find the set.",
+    "drop": "Drop a photo here",
+    "orClick": "or click to choose a file",
+    "or": "or",
+    "paste": "paste from clipboard",
+    "camera": "Use camera",
+    "tryAnother": "Try another photo",
+    "looking": "Looking for matches…",
+    "topMatch": "Top match",
+    "alsoMaybe": "Or maybe one of these",
+    "confidence": "{score}% match",
+    "fallback": "Couldn't recognize this set. Try a clearer photo or type the set number.",
+    "fallbackCta": "Type the set number",
+    "fileTooLarge": "Photo is over 5MB — pick a smaller one.",
+    "fileWrongType": "That file isn't an image we can read.",
+    "uploadError": "Recognition is offline. Try again or type the set number.",
+    "privacyNote": "Photos are sent to our recognition partner for matching. We don't store them.",
+    "supportedFormats": "JPEG, PNG, WebP, HEIC up to 5MB"
+  },
+  "retailers": {
+    "heading": "Where to find",
+    "subheading": "Shop links — we don't sell sets ourselves.",
+    "lego": "View on LEGO.com",
+    "bricklink": "View on BrickLink",
+    "ebay": "Search on eBay",
+    "amazon": "Search on Amazon",
+    "disclaimer": "Prices and availability vary by retailer. Brick Finder doesn't sell sets — these are direct shop links."
+  },
+  "msrp": {
+    "heading": "Original retail price"
+  },
+  "privacy": {
+    "title": "Privacy",
+    "intro": "Brick Finder is a personal project. Here's the short version of how data flows.",
+    "storage": "We don't store your photos.",
+    "storageDetail": "When you use photo search, your image is sent to our recognition partner (Brickognize) for matching, then discarded. We don't keep a copy on our servers.",
+    "saved": "Saved sets stay in your browser.",
+    "savedDetail": "Your collection lives in your browser's localStorage under the key brickfinder:saved. Clear your browser data and it's gone.",
+    "credits": "Set data is provided by Rebrickable. Image recognition by Brickognize."
   },
   "errors": {
     "generic": "Something went sideways. Try again in a moment.",

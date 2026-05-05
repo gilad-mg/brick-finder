@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: LandingProps): Promise<Metada
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "brand" });
   return {
-    title: t("name"),
+    title: { absolute: t("name") },
     description: t("tagline"),
     openGraph: {
       title: t("name"),

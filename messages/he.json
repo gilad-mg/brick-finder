@@ -1,0 +1,97 @@
+{
+  "brand": {
+    "name": "בריק פיינדר",
+    "tagline": "מצא כל סט לגו, מהר",
+    "footer": "נבנה מאבני לגו ואהבה",
+    "rebrickableCredit": "מבוסס על Rebrickable"
+  },
+  "nav": {
+    "home": "דף הבית",
+    "search": "חיפוש",
+    "myBricks": "האוסף שלי",
+    "skipToContent": "דלג לתוכן",
+    "openMenu": "פתיחת תפריט",
+    "closeMenu": "סגירת תפריט"
+  },
+  "search": {
+    "placeholder": "חפשו סט, ערכת נושא או מספר…",
+    "submit": "חיפוש",
+    "rotatingExamples": ["Galaxy Explorer", "Star Wars", "10497", "טיל", "Technic", "ארכיטקטורה"],
+    "resultsHeading": "תוצאות עבור \"{query}\"",
+    "resultsCount": "{count, plural, =0 {לא נמצאו סטים} =1 {נמצא סט אחד} other {נמצאו # סטים}}",
+    "loadingResults": "מחפש ביקום הלבנים…",
+    "empty": "לא נמצאו סטים שתואמים את החיפוש.",
+    "emptyHint": "נסו ערכת נושא אחרת או מספר סט.",
+    "previous": "הקודם",
+    "next": "הבא",
+    "page": "עמוד {page}"
+  },
+  "methods": {
+    "heading": "שלוש דרכים למצוא את הסט שלכם",
+    "subheading": "מתחילים בטקסט — חיפוש לפי תמונה ונושא בדרך.",
+    "text": {
+      "title": "חיפוש בטקסט",
+      "desc": "הקלידו שם, ערכת נושא או מספר סט.",
+      "cta": "נסו עכשיו"
+    },
+    "image": {
+      "title": "חיפוש לפי תמונה",
+      "desc": "צלמו לבנה, מצאו את הסט.",
+      "badge": "בקרוב"
+    },
+    "theme": {
+      "title": "עיון לפי נושא",
+      "desc": "מלחמת הכוכבים, טכניק, סיטי ועוד.",
+      "badge": "בקרוב"
+    }
+  },
+  "featured": {
+    "heading": "סטים אייקוניים",
+    "subheading": "כמה להיטים גדולים שיתחילו אתכם בכיף."
+  },
+  "set": {
+    "parts": "חלקים",
+    "year": "שנה",
+    "theme": "ערכת נושא",
+    "save": "שמירה לאוסף שלי",
+    "unsave": "הסרה מהאוסף",
+    "saved": "נשמר",
+    "savedToast": "{name} נשמר באוסף שלכם",
+    "removedToast": "{name} הוסר",
+    "buildInstructions": "הוראות הרכבה",
+    "viewOnRebrickable": "צפייה ב-Rebrickable",
+    "priceComparison": "השוואת מחירים",
+    "priceComparisonSoon": "מגיע בעדכון עתידי.",
+    "notFound": "לא הצלחנו למצוא את הסט הזה.",
+    "back": "חזרה לחיפוש",
+    "imageGallery": "תמונה {index} מתוך {total}"
+  },
+  "myBricks": {
+    "heading": "האוסף שלי",
+    "subheading": "{count, plural, =0 {עדיין לא נשמרו סטים} =1 {סט אחד נשמר} other {נשמרו # סטים}}",
+    "empty": "האוסף שלכם ריק",
+    "emptyHint": "מצאו סט שאהבתם ולחצו על הלב כדי לשמור אותו כאן.",
+    "emptyCta": "מצאו לבנים",
+    "remove": "הסרה",
+    "removed": "הוסר",
+    "loadError": "לא הצלחנו לטעון את הסטים השמורים."
+  },
+  "theme": {
+    "toggle": "החלפת ערכת נושא",
+    "light": "בהיר",
+    "dark": "כהה",
+    "system": "מערכת"
+  },
+  "language": {
+    "toggle": "החלפת שפה"
+  },
+  "errors": {
+    "generic": "משהו השתבש. נסו שוב בעוד רגע.",
+    "search": "לא הצלחנו להגיע ל-Rebrickable. נסו שוב בעוד רגע."
+  },
+  "notFound": {
+    "title": "הדף הזה אבוד",
+    "subtitle": "בדיוק כמו לבנת לגו שאיבדה את הדרך. בואו נחזור הביתה.",
+    "cta": "חזרה לדף הבית"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "brand": {
+    "name": "Brick Finder",
+    "tagline": "Find any LEGO set, fast",
+    "footer": "Made with bricks and love",
+    "rebrickableCredit": "Powered by Rebrickable"
+  },
+  "nav": {
+    "home": "Home",
+    "search": "Search",
+    "myBricks": "My Bricks",
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "search": {
+    "placeholder": "Search sets, themes, or numbers…",
+    "submit": "Search",
+    "rotatingExamples": ["Galaxy Explorer", "Star Wars", "10497", "rocket", "Technic", "Architecture"],
+    "resultsHeading": "Results for \"{query}\"",
+    "resultsCount": "{count, plural, =0 {No sets found} =1 {1 set found} other {# sets found}}",
+    "loadingResults": "Searching the brick universe…",
+    "empty": "No sets matched your search.",
+    "emptyHint": "Try a different theme or set number.",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {page}"
+  },
+  "methods": {
+    "heading": "Three ways to find your set",
+    "subheading": "Start with text — image and theme search land soon.",
+    "text": {
+      "title": "Search by text",
+      "desc": "Type a name, theme, or set number.",
+      "cta": "Try it now"
+    },
+    "image": {
+      "title": "Search by photo",
+      "desc": "Snap a brick, find the set.",
+      "badge": "Coming soon"
+    },
+    "theme": {
+      "title": "Browse by theme",
+      "desc": "Star Wars, Technic, City, and more.",
+      "badge": "Coming soon"
+    }
+  },
+  "featured": {
+    "heading": "Iconic sets",
+    "subheading": "A handful of greatest hits to get you started."
+  },
+  "set": {
+    "parts": "Parts",
+    "year": "Year",
+    "theme": "Theme",
+    "save": "Save to My Bricks",
+    "unsave": "Remove from My Bricks",
+    "saved": "Saved",
+    "savedToast": "Saved {name} to your collection",
+    "removedToast": "Removed {name}",
+    "buildInstructions": "Building instructions",
+    "viewOnRebrickable": "View on Rebrickable",
+    "priceComparison": "Price comparison",
+    "priceComparisonSoon": "Coming in a future update.",
+    "notFound": "We couldn't find that set.",
+    "back": "Back to search",
+    "imageGallery": "Set image {index} of {total}"
+  },
+  "myBricks": {
+    "heading": "My Bricks",
+    "subheading": "{count, plural, =0 {Nothing saved yet} =1 {1 set saved} other {# sets saved}}",
+    "empty": "Your collection is empty",
+    "emptyHint": "Find a set you love and tap the heart to save it here.",
+    "emptyCta": "Find some bricks",
+    "remove": "Remove",
+    "removed": "Removed",
+    "loadError": "Couldn't load your saved sets right now."
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "toggle": "Switch language"
+  },
+  "errors": {
+    "generic": "Something went sideways. Try again in a moment.",
+    "search": "We couldn't reach Rebrickable. Try again shortly."
+  },
+  "notFound": {
+    "title": "This page is missing",
+    "subtitle": "Like a lost LEGO piece. Let's get you home.",
+    "cta": "Back to home"
+  }
+}

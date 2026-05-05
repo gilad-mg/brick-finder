@@ -67,7 +67,7 @@ export const searchSets = unstable_cache(
     });
     return rebrickableFetch<RebrickableSearchResponse>(`/lego/sets/?${params}`);
   },
-  ["rebrickable-search"],
+  ["rebrickable-search-v2"],
   { revalidate: 3600, tags: ["rebrickable"] },
 );
 
@@ -79,7 +79,7 @@ export const getSet = unstable_cache(
       return null;
     }
   },
-  ["rebrickable-set"],
+  ["rebrickable-set-v2"],
   { revalidate: 3600, tags: ["rebrickable"] },
 );
 
@@ -94,7 +94,7 @@ export const getSetAlternates = unstable_cache(
       return [];
     }
   },
-  ["rebrickable-alternates"],
+  ["rebrickable-alternates-v2"],
   { revalidate: 3600, tags: ["rebrickable"] },
 );
 
@@ -106,7 +106,7 @@ export const getTheme = unstable_cache(
       return null;
     }
   },
-  ["rebrickable-theme"],
+  ["rebrickable-theme-v2"],
   { revalidate: 86400, tags: ["rebrickable"] },
 );
 
